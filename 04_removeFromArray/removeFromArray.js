@@ -1,12 +1,13 @@
-const removeFromArray = function(arr, ...tofind) {
-    const temparr = [...new Set(arr)]
-    tofind.forEach((tf)=>{
-        const del_index = temparr.findIndex((v)=>v===tf);
-        if(del_index!==-1){
-            temparr.splice(del_index,1)
+const removeFromArray = function(tosearcharr, ...tofind) {
+    const arr = [...new Set(tosearcharr)]
+    tofind.forEach((v)=>{
+        console.log(v)
+        const del_index = arr.findIndex((vi)=>vi===v);
+        if(del_index>=0){
+            arr.splice(del_index,1)
         }
     })
-    return temparr;
+    return arr;
 };
 
 // Do not edit below this line
