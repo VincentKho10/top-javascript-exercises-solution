@@ -1,6 +1,5 @@
 const convertToCelsius = function(farenheit) {
-  let rounded = parseFloat(Math.round((5/9).toFixed(4)*10000)/10000)
-  return parseFloat(((farenheit-32)*rounded).toFixed(1))
+  return Math.round((farenheit - 32)*5/9*10)/10
 };
 
 const convertToFahrenheit = function(celcius) {
