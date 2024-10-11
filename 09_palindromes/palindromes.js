@@ -1,11 +1,10 @@
 const palindromes = function (text) {
-    let sanitized = text.replace(/[^a-zA-Z0-9]/g,'')
-    sanitized = sanitized.toLowerCase()
-    const lastidx = sanitized.length-1
-    const iter = Math.floor(sanitized.length/2)
-    console.log(sanitized)
-    for(let i=0; i<iter; i++){
-        if(sanitized[i]!=sanitized[lastidx-i]){
+    const sanitized_text = text.replace(/[^a-zA-Z0-9]/g,"").toLowerCase()
+    console.log(sanitized_text)
+    const length = sanitized_text.length
+    const repeat = Math.floor(length/2)
+    for(let i=0; i<repeat;i++){
+        if(sanitized_text[i]!=sanitized_text[length-i-1]){
             return false
         }
     }
