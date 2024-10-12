@@ -1,27 +1,17 @@
+const getAge = function (birth, death = new Date().getFullYear()){
+  return death-birth
+}
+
 const findTheOldest = function (arr_person) {
-  const oldst = arr_person.reduce(
+  return arr_person.reduce(
     (acc, curr) => {
-      const curryod = curr.yearOfDeath
-        ? curr.yearOfDeath
-        : new Date().getFullYear();
-      const currage = curryod - curr.yearOfBirth;
-      const accyod = acc.yearOfDeath
-        ? acc.yearOfDeath
-        : new Date().getFullYear();
-      const accage = accyod - acc.yearOfBirth;
-
-      if (accage < currage) {
-        return curr;
-      }
-      return acc;
-    },
-    { yearOfDeath: 1, yearOfBirth: 1 }
+      const {yearOfBirth: ayb, yearOfDeath: ayd} = acc
+      const {yearOfBirth: cyb, yearOfDeath: cyd} = curr
+      const acc_age = getAge(ayb, ayd)
+      const curr_age = getAge(cyb, cyd)
+      return acc_age > curr_age?acc:curr
+    }
   );
-
-  return arr_person.find((v) => {
-    // console.log(v)
-    return v === oldst;
-  });
 };
 
 // Do not edit below this line
